@@ -1,3 +1,24 @@
-baseURL = "http://example.org/"
+baseURL = "/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+# title = "c3smonkey.ch"
+theme = "m10c"
+# theme = "indigo"
+# theme = "simple-a"
+
+[params]
+  avatar = "c3smonkey.jpeg"
+
+description = "This is my personal blog where I will mostly post about development."
+# homepage = "https://blog.marcelwidmer.org"
+
+
+ [[params.social]]
+  name = "github"
+  url = "https://github.com/marzelwidmer"
+
+[params.style]
+  # darkestColor = "#d35050"
+  # darkColor = "#212121"
+  # lightColor = "#f5e3e0"
+  lightestColor = "#f5f5f5"
+  primaryColor = "#7932ff"
