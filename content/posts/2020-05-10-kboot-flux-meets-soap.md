@@ -14,26 +14,26 @@ The GitHb [^GitHub] sample provides a
   * `easing` have an implemented from Avoiding Reactor Meltdown [^AvoidingReactorMeltdown] show case how to manage `Blocking API`.
 
 With this approach to manage `Blocking API` in the same service ant not in a separate service we have all the nice features like `retry` `filter` `map` and so on
-in our `Servive A` from the `Reactive Streams API`. 
+in our `Service A` from the `Reactive Streams API`. 
 
 We also not have to manage a other service who will handle it for us. With this we have less network hops, Organisations-Issues, Deployment etc. who are sometimes increase complexity and so on.
 
-
-* [Rest API](#restAPI)
-* [BlockHound Plugin](#blockHound)
-* [SOAP Server](#soapServer)
-* [SOAP with HTTPie Server](#httpieSoapCall)
-* [Implementation](#implementation)
+* [Rest API]({{<ref "#restAPI" >}}) 
+* [BlockHound Plugin]({{<ref "#blockHound" >}})       
+* [SOAP Server]({{<ref "#soapServer" >}})     
+* [SOAP with HTTPie Server]({{<ref "#httpieSoapCall" >}}) 
+* [Implementation]({{<ref "#implementation" >}})    
 
 
 ![fluxMeetsSoap](/2020-05-10-kboot-flux-meets-soap/FluxMeetsSoap.png)
 
 
-# Flux Client  <a name="restAPI"></a>
+# Flux Client  {#restAPI} 
 ## API Lockdown Switzerland
 ```bash
 http :8080/api/lockdown/Switzerland
 ```
+
 
 ## API easing Switzerland
 ```bash
@@ -41,7 +41,8 @@ http :8080/api/easing/Switzerland
 ```
 
 
-## Blockhound  <a name="blockHound"></a>
+
+## Blockhound  {#blockHound}  
 [BlockHound](https://github.com/reactor/BlockHound) is a Java agent to detect blocking calls from non-blocking threads. 
 Add the following or latest dependency from `blockhound`.
 ```xml
@@ -61,7 +62,7 @@ fun main(args: Array<String>) {
 }
 ```
  
-# SOAP Server <a name="soapServer"></a>
+# SOAP Server  {#soapServer} 
 The Server have an implementation with a demonstration how we can write own `Kotlin DSL`.
 
 ## DSL [^KotlinDSLinUnderAnhour]
@@ -94,7 +95,7 @@ The Server have an implementation with a demonstration how we can write own `Kot
 </soapenv:Envelope>
 ```
 
-## Call Service with `HTTPie` <a name="httpieSoapCall"></a>
+## Call Service with `HTTPie`  {#httpieSoapCall}  
 
 ```bash
 printf '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -112,7 +113,7 @@ printf '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 
 
 
-# Implementation <a name="implementation"></a>  
+# Implementation  {#implementation}   
 ## Router Table 
 ```kotlin
 bean {
