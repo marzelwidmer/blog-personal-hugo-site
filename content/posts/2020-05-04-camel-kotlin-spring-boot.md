@@ -1,13 +1,12 @@
-2020-05-04-camel-kotlin-spring-boot.md---
+---
 title: Apache Camel with Kotlin and Spring Boot
+subTitle:  
 date: "2020-05-04"
 draft: false
 tags: [SpringBoot, Kotlin]
 ---
-
 Apache Camel is an open source integration framework that empowers you to quickly and easily integrate various systems consuming or producing data.
 
-  
 * [Precondition on OSX]({{<ref "#precondition" >}}) 
 * [Create Project]({{<ref "#createProject" >}}) 
 * [Check Camel Context]({{<ref "#checkCamelContext" >}}) 
@@ -22,7 +21,6 @@ command line tool this can be installed with :
 ```bash
 brew install inetutils
 ```
-
 
 ## Create Project {#createProject}
 Run the following commands :
