@@ -1,4 +1,4 @@
----
+2020-05-04-camel-kotlin-spring-boot.md---
 title: Apache Camel with Kotlin and Spring Boot
 date: "2020-05-04"
 draft: false
@@ -378,10 +378,9 @@ tree
 ```
 
 
-
-
-> **_References:_**  
-[GitHub Sample Project](https://github.com/marzelwidmer/kboot-camel)
-[Spring Tips Apache Camel](https://spring.io/blog/2018/05/23/spring-tips-apache-camel)
-[Camel Apache Spring Boot](https://camel.apache.org/camel-spring-boot/latest/)
-[Public FTP](https://www.walkerit.ch/public-ftp)
+---
+_References:_
+> [GitHub Sample Project](https://github.com/marzelwidmer/kboot-camel)
+>| [Spring Tips Apache Camel](https://spring.io/blog/2018/05/23/spring-tips-apache-camel)
+>| [Camel Apache Spring Boot](https://camel.apache.org/camel-spring-boot/latest/)
+>| [Public FTP](https://www.walkerit.ch/public-ftp)
