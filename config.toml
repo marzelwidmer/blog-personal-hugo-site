@@ -22,5 +22,5 @@ description = "This is my personal blog where I will mostly post about developme
   # lightColor = "#f5e3e0"
   lightestColor = "#f5f5f5"
   primaryColor = "#0fae0d"
-  subTitleColor = "#9B8A0F"
-
+#  subTitleColor = "#9B8A0F"
+#  titleColor =  "#9B8A0F"

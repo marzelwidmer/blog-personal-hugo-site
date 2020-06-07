@@ -1,5 +1,10 @@
 .post-title {
-  color: $lightest-color;
+  //color: $lightest-color;
+  color: $title-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $title-color;
 }
 
 .post-subtitle {
