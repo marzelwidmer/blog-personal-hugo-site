@@ -26,21 +26,11 @@
         {{ end }}
       </div>
 
+      <li class="posts-list-item"></li>
+      <li class="posts-list-item"><a href="{{ .Site.BaseURL }}">Blogs</a></li>
 
-      <hr>
-      <div>
-        <a href="{{ .Site.BaseURL }}">Blogs</a>
-      </div>
-      <hr>
-      <div>
-        <a href="{{ .Site.BaseURL }}tags">Tags</a>
-      </div>
-
-      <hr>
-      <div>
-        <a href="{{ .Site.BaseURL }}categories">Categories</a>
-      </div>
-
+<!--      <li class="posts-list-item"><a href="{{ .Site.BaseURL }}tags">Tags</a></li>-->
+<!--      <li class="posts-list-item"><a href="{{ .Site.BaseURL }}categories">Categories</a></li>-->
       <!--
       {{ range $name, $items := .Site.Taxonomies.categories }}
       <a href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }} &nbsp;<span>({{ len $items }})</span></a>
