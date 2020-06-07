@@ -2,7 +2,7 @@
 title: Kubernetes cheat sheet
 subTitle: K8s cheat sheet tips and tricks
 date: "2020-06-07"
-draft: false
+draft: true
 tags: [K8s]
 categories: [Kubernetes]
 ---
