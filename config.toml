@@ -1,8 +1,8 @@
 baseURL = "/"
 languageCode = "en-us"
 
-theme = "indigo"
-theme = "lithium"
+#theme = "indigo"
+#theme = "lithium"
 theme = "m10c"
 
 [params]
