@@ -25,6 +25,28 @@
           <a target="_blank" href="{{ .url }}" rel="noreferrer noopener">{{ partial "icon.html" (dict "ctx" $ "name" .name ) }}</a>
         {{ end }}
       </div>
+
+
+      <hr>
+      <div>
+        <a href="{{ .Site.BaseURL }}">Blogs</a>
+      </div>
+      <hr>
+      <div>
+        <a href="{{ .Site.BaseURL }}tags">Tags</a>
+      </div>
+
+      <hr>
+      <div>
+        <a href="{{ .Site.BaseURL }}categories">Categories</a>
+      </div>
+
+      <!--
+      {{ range $name, $items := .Site.Taxonomies.categories }}
+      <a href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }} &nbsp;<span>({{ len $items }})</span></a>
+      {{ end }}
+      -->
+
     </header>
     <main class="app-container">
       {{ block "main" . }}

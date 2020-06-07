@@ -23,6 +23,15 @@
         {{- end -}}
       </div>
       {{- end -}}
+
+
+      {{ partial "icon.html" (dict "ctx" $ "name" "categories") }}
+      {{ range $items := .Params.categories }}
+        <a class="tag" href="{{ $.Site.BaseURL }}categories/{{ $items | urlize | lower }}">{{$items}}</a>
+      {{ end }}
+
+
+
     </div>
   </header>
   <div class="post-content">
