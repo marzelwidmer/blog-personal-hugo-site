@@ -1,6 +1,6 @@
 ---
 title: Apache Camel with Kotlin and Spring Boot
-subTitle:  
+subTitle: Apache Camel integration framework 
 date: "2020-05-04"
 draft: false
 tags: [SpringBoot, Kotlin]
