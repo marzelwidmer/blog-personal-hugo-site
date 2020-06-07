@@ -1,9 +1,10 @@
 baseURL = "/"
 languageCode = "en-us"
-#title = "blog"
 theme = "m10c"
+
 #theme = "indigo"
-#theme = "simple-a"
+#theme = "lithium"
+#theme = "hello-friend-ng"
 
 [params]
   avatar = "avatar.png"
