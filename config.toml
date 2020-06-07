@@ -2,8 +2,8 @@ baseURL = "/"
 languageCode = "en-us"
 #title = "blog"
 theme = "m10c"
-# theme = "indigo"
-# theme = "simple-a"
+#theme = "indigo"
+#theme = "simple-a"
 
 [params]
   avatar = "avatar.png"
