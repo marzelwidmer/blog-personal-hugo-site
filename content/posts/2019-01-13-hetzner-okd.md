@@ -7,7 +7,7 @@ tags: [K8s]
 categories: [Kubernetes]
 ---
 
-Inspiration from [Installation of OKD 3.10 from start to finish](https://www.youtube.com/watch?v=ZkFIozGY0IA){:target="_blank"}
+Inspiration from [Installation of OKD 3.10 from start to finish](https://www.youtube.com/watch?v=ZkFIozGY0IA)
 
 Create a `Hetzner VM` with the CLI https://github.com/hetznercloud/cli
 
