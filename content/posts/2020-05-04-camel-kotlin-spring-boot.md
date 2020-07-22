@@ -39,7 +39,6 @@ http https://start.spring.io/starter.tgz \
     packageName==ch.keepcalm.demo \
     javaVersion==11 \
     language==kotlin \
-    bootVersion==2.3.0.RC1 \
     baseDir==$KBOOT_NAME| tar -xzvf -
 
 

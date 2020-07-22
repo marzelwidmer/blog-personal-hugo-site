@@ -24,7 +24,6 @@ http https://start.spring.io/starter.tgz \
     packageName==ch.keepcalm.demo \
     javaVersion==11 \
     language==kotlin \
-    bootVersion==2.3.0.M4 \
     baseDir==kboot-resilience4j| tar -xzvf -
 ```
 Add Customer Banner
@@ -307,4 +306,3 @@ _References:_
 > [Resilience4j docs](https://resilience4j.readme.io/docs)
  
 
-  
