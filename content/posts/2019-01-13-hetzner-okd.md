@@ -330,11 +330,24 @@ You have now a `OKD` instance with Let's Encrypt.
 
 
 # Renewal Let's Encrypt 
-to renewal the Let's Encrypt you can log in to your `VM` and execute the following 
-two ansible scripts in the `installcentos/` folder. 
+There is a `crontab` with renew command.
 ```bash
- . user-custom-exports.sh
- ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml
- ansible-playbook -i inventory.ini openshift-ansible/playbooks/deploy_cluster.yml
+crontab -l
+@weekly  certbot renew --pre-hook="oc scale --replicas=0 dc router" --post-hook="oc scale --replicas=1 dc router"
 ```
+## Check Certificate
+```bash
+certbot certificates
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: c3smonkey.ch
+    Serial Number: 4657db8105e7b58c87e5f69ff91a84a4178
+    Domains: c3smonkey.ch *.apps.c3smonkey.ch *.c3smonkey.ch
+    Expiry Date: 2020-10-22 07:16:07+00:00 (VALID: 89 days)
+    Certificate Path: /etc/letsencrypt/live/c3smonkey.ch/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/c3smonkey.ch/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+```
