@@ -330,7 +330,7 @@ You have now a `OKD` instance with Let's Encrypt.
 
 
 # Renewal Let's Encrypt 
-to renewal the Let's Encrypt you can log in to your `VM` and execute the following scrupts 
+to renewal the Let's Encrypt you can log in to your `VM` and execute the following 
 two ansible scripts in the `installcentos/` folder. 
 ```bash
  . user-custom-exports.sh
