@@ -15,7 +15,7 @@ Create a `Hetzner VM` with the CLI https://github.com/hetznercloud/cli
 Let's check first some `hcloud` command that we can use later to create a `VM` with the right size and in the `Datacenter` we want.
 
 
-![hetzner-preis](/hetzner-preis.png)
+![hetzner-preis](/hetzner/hetzner-preis.png)
 
 
 ```bash
@@ -229,7 +229,7 @@ Press Enter to Continue
 
 In my case something like so :
 
-![acme](/acme.png)
+![acme](/hetzner//acme.png)
 
 You can check the `DNS` with [https://dnschecker.org/](https://dnschecker.org/#TXT/_acme-challenge.apps.keepcalm.ch)
 Check with `host` command.
@@ -326,7 +326,7 @@ Using project "default".
 After the installation is finish you can on : [https://console.keepcalm.ch:8443/console/catalog](https://console.keepcalm.ch:8443/console/catalog)
 You have now a `OKD` instance with Let's Encrypt.
 
-![hetzner-preis](/console.png)
+![hetzner-preis](/hetzner//console.png)
 
 
 # Renewal Let's Encrypt 

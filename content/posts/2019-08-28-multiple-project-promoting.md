@@ -1,29 +1,27 @@
 ---
 title: Promoting Applications Across Environments
 subTitle: Build and ship
-date: "2019-08-28"
-draft: true
-tags: [K8s]
+date: "2019-09-18"
+draft: false
+tags: [K8s, SpringBoot]
 categories: [Kubernetes]
 ---
-
 # Table of contents
-* [Create Project](#CreateProject)
-* [Install Jenkins](#InstallJenkins) / [Install Jenkins With CLI](#InstallJenkinsWithCLID)
-* [Add Edit Role To ServiceAccount Jenkins](#AddEditRoleToServiceAccountJenkins)
-* [Add Role To Group](#AddRoleToGroup)
-* [Deploy Application](#DeployApplication)
-* [Development Environment Deployment ](#DevelopmentEnvironmentDeployment)
-* [Test API](#TestAPI)
-* [Testing Environment Deployment](#TestingEnvironmentDeployment)
-* [Production Environment Deployment](#ProductionEnvironmentDeployment)
-* [Jenkins Pipeline](#JenkinsPipeline)
-* [WebHooks](#WebHooks)
+* [Create Project]({{<ref "#CreateProject" >}}) 
+* [Install Jenkins]({{<ref "#InstallJenkins" >}}) / [Install Jenkins With CLI]({{<ref "#InstallJenkins" >}}) 
+* [Add Edit Role To ServiceAccount Jenkins]({{<ref "#AddEditRoleToServiceAccountJenkins" >}})  
+* [Add Role To Group]({{<ref "#AddRoleToGroup" >}})  
+* [Deploy Application]({{<ref "#DeployApplication" >}})
+* [Development Environment Deployment ]({{<ref "#DevelopmentEnvironmentDeployment" >}}) 
+* [Test API]({{<ref "#TestAPI" >}})
+* [Testing Environment Deployment]({{<ref "#TestingEnvironmentDeployment" >}})
+* [Production Environment Deployment]({{<ref "#ProductionEnvironmentDeployment" >}})
+* [Jenkins Pipeline]({{<ref "#JenkinsPipeline" >}}) 
+* [WebHooks]({{<ref "#WebHooks" >}})
 
 
-## Create Project  <a name="CreateProject"></a>
+## Create Project  {#CreateProject} 
 We are going to use the CLI to create some projects. 
-You can, of course, use the [console](https://console.c3smonkey.ch:8443/console/catalog){:target="_blank"} if you prefer. 
 Let's create our projects first:
 ```bash
 $ oc login  
@@ -33,23 +31,23 @@ $ oc new-project production --display-name="Production Environment"
 $ oc new-project jenkins --display-name="Jenkins CI/CD"  
 ```
 
-## Install Jenkins   <a name="InstallJenkins"></a>
-Create a Jenkins in the `Jenkins CI/CD` project with some storage. Take the Jenkins form the catalog and set some more memory and volume capacity on it.
+## Install Jenkins  {#InstallJenkins}   
+Create a Jenkins in the `Jenkins CI/CD` project with some storage. Take the Jenkins from the catalog and set some more memory and volume capacity on it.
 Everything else we let the default values. 
-After installation you can login with your Openshift account to the [Jenkins BlueOcean](https://jenkins-jenkins.apps.c3smonkey.ch/blue/organizations/jenkins/)  
+Login with your Openshift account to the `Jenkins BlueOcean`.  
 
-![Jenkins-From-Catalog-1](/img/2019/multiple-project-promoting/Jenkins-from-catalog-1.png)
-![Jenkins-From-Catalog-2](/img/2019/multiple-project-promoting/Jenkins-from-catalog-2.png)
-![Jenkins-From-Catalog-3](/img/2019/multiple-project-promoting/Jenkins-from-catalog-3.png)
+![Jenkins-From-Catalog-1](/multiple-project-promoting/Jenkins-from-catalog-1.png)
+![Jenkins-From-Catalog-2](/multiple-project-promoting/Jenkins-from-catalog-2.png)
+![Jenkins-From-Catalog-3](/multiple-project-promoting/Jenkins-from-catalog-3.png)
 
 ## Configure Jenkins Maven Slave - Concurrency Limit
 Let's configure out `Maven-Slave` concurrency limit to `5` in order that we later want build more then one project.
 Please go to the Jenkins Configuration Page `https://<jenkins>/configure` in the section `Cloud/Kubernetes Pod Template` and search for the `Maven` Pod.
 
-![Maven-Pod-Concurrency-Limit](/img/2019/multiple-project-promoting/Maven-Pod-Concurrency-Limit.png)
+![Maven-Pod-Concurrency-Limit](/multiple-project-promoting/Maven-Pod-Concurrency-Limit.png)
 
 
-## Install Jenkins with CLI <a name="InstallJenkinsWithCLID"></a> 
+## Install Jenkins with CLI {#InstallJenkinsWithCLI}    
 ```bash
 $ oc new-app jenkins-persistent --name jenkins --param ENABLE_OAUTH=true \
         --param MEMORY_LIMIT=2Gi --param VOLUME_CAPACITY=4Gi -n jenkins
@@ -57,9 +55,9 @@ $ oc new-app jenkins-persistent --name jenkins --param ENABLE_OAUTH=true \
 
 
 ### Jenkins File From Source Repository
-The pipeline [Jenkinsfile](https://raw.githubusercontent.com/marzelwidmer/marzelwidmer.github.io/master/img/2019/multiple-project-promoting/Promotion-Jenkinsfile){:target="_blank"} is provided in the source repository. 
+The pipeline [Jenkinsfile](https://raw.githubusercontent.com/marzelwidmer/marzelwidmer.github.io/master/img/2019/multiple-project-promoting/Promotion-Jenkinsfile) is provided in the source repository. 
 
-## Add Edit Role To ServiceAccount Jenkins  <a name="AddEditRoleToServiceAccountJenkins"></a>
+## Add Edit Role To ServiceAccount Jenkins  {#AddEditRoleToServiceAccountJenkins}   
 Let’s add in RBAC to our projects to allow the different service accounts to build, pro‐ mote, and tag images.
 First we will allow the cicd project’s Jenkins service account edit access to all of our projects:
 
@@ -69,8 +67,8 @@ $ oc policy add-role-to-user edit system:serviceaccount:jenkins:jenkins -n testi
 $ oc policy add-role-to-user edit system:serviceaccount:jenkins:jenkins -n production
 ```
 
-## Add Role To Group <a name="AddRoleToGroup"></a>
-That we can pull our image from `testing` and `production` environment from the `development` registry. This are needed for pulling the Images across the projects.
+## Add Role To Group  {#AddRoleToGroup}     
+That we can pull our image from `testing` and `production` environment from the `development` registry. This is needed for pulling the Images across the projects.
 
 ```bash
 $ oc policy add-role-to-group system:image-puller system:serviceaccounts:testing  \
@@ -79,10 +77,10 @@ $ oc policy add-role-to-group system:image-puller system:serviceaccounts:product
         -n development
 ```
 
-# Deploy Application <a name="DeployApplication"></a>
-Let's deploy first the application with the [S2i strategy](https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html){:target="_blank"}.
+# Deploy Application  {#DeployApplication}     
+Let's deploy first the application with the [S2i strategy](https://docs.openshift.com/container-platform/3.11/creating_images/s2i.html).
 before we will create the delivery pipeline.
-## Development Environment Deployment  <a name="DevelopmentEnvironmentDeployment"></a> 
+## Development Environment Deployment  {#DevelopmentEnvironmentDeployment} 
 Let's change first the project to to development with the `oc project development` command.
 
 ```bash
@@ -93,7 +91,7 @@ Now using project "development" on server "https://console.c3smonkey.ch:8443".
 Creat a new app with `oc new-app`
 ```
 
-We will use here the [fabric8/s2i-java](https://hub.docker.com/r/fabric8/s2i-java){:target="_blank"} to deploy our application and will point it to the master branch with the commant `oc new-app`
+We will use here the [fabric8/s2i-java](https://hub.docker.com/r/fabric8/s2i-java) to deploy our application and will point it to the master branch with the command `oc new-app`
 We also want expose the service `oc expose svc/catalog-service` to get a URL with the command `oc get route catalog-service` we will see the URL on the terminal. 
 
 ```bash
@@ -133,9 +131,9 @@ NAME             HOST/PORT                                      PATH  SERVICES  
 catalog-service  catalog-service-development.apps.c3smonkey.ch        catalog-service  8080-tcp               None
 ```
 
-Now take a look in the OpenShift [console](https://console.c3smonkey.ch:8443/){:target="_blank"} project `development`
+Now take a look in the OpenShift Console project `development`
 
-![catalog-service-dev-deployment](/img/2019/multiple-project-promoting/catalog-service-dev-deployment.png)
+![catalog-service-dev-deployment](/multiple-project-promoting/catalog-service-dev-deployment.png)
 
 Let's take a look what the S2i crated for us. 
 This can be done with the following command `oc get all -n development --selector app=catalog-service`.
@@ -170,9 +168,9 @@ route.route.openshift.io/catalog-service   catalog-service-development.apps.c3sm
 ```
 
 
-## Test API on Development <a name="TestAPI"></a>
+## Test API on Development  {#TestAPI} 
 Now let's test the amazing `/api/v1/animals/rando` API from `catalog-service` by hitting the following Rest endpoint 50 times. 
-in a bash shell with the following command `for x in (seq 50); http "http://catalog-service-development.apps.c3smonkey.ch/api/v1/animals/random"; end`
+in a bash shell with the following command. `for x in (seq 50); http "http://catalog-service-development.apps.c3smonkey.ch/api/v1/animals/random"; end`
 ```bash
 $ ~ 🐠 
 for x in (seq 50); \
@@ -198,7 +196,7 @@ Dogo Argentino
 HTTP/1.1 200 OK
 ```
  
-## Testing Environment Deployment <a name="TestingEnvironmentDeployment"></a>
+## Testing Environment Deployment {#TestingEnvironmentDeployment}
 Let's change first to the testing project with `oc project testing`. 
 We remember that we have in our setup only one docker registry from this registry we want promote our Docker images to other projects in our OpenShift Cluster setup.
 The access is now available because we did the [Add Role To Group](#AddRoleToGroup). Now let's take a look at the ImageStream in the project `development` with the
@@ -242,7 +240,7 @@ $ oc patch dc/catalog-service  -p \
 ```
 
 
-## Production Environment Deployment <a name="ProductionEnvironmentDeployment"></a>
+## Production Environment Deployment {#ProductionEnvironmentDeployment}
 The same what we did on the [Testing Environment Deployment ](#TestingEnvironmentDeployment) we also do now on the production environment. 
 But we configure the promotion tag `promotePRD` in the deployment configuration.
 
@@ -258,18 +256,18 @@ $ oc expose svc/catalog-service
 ## Jenkins Pipeline  <a name="JenkinsPipeline"></a>
 
 So now let's create a `BuildConfig` for the `catalaog-service` with the 
-following [catalog-service-jenkins-pipeline](/img/2019/multiple-project-promoting/catalog-service-pipeline.yaml){:target="_blank"} configuration
-in the Jenkins namespace (project) let's do it with `oc create -n jenkins -f https://blog.marcelwidmer.org/img/2019/openshift-pipeline/catalog-service-pipeline.yaml`
+following [catalog-service-jenkins-pipeline](/multiple-project-promoting/catalog-service-pipeline.yaml) configuration
+in the Jenkins namespace (project) let's do it with `oc create -n jenkins -f https://blog.marcelwidmer.org/openshift-pipeline/catalog-service-pipeline.yaml`
 
 ```bash
 $ oc create -n jenkins -f \
-    https://blog.marcelwidmer.org/img/2019/openshift-pipeline/catalog-service-pipeline.yaml
+    https://blog.marcelwidmer.org/openshift-pipeline/catalog-service-pipeline.yaml
 buildconfig.build.openshift.io/catalog-service-pipeline created
 ```
 
-When you go now in the OpenShift [console](https://console.c3smonkey.ch:8443/console/project/jenkins/browse/pipelines){:target="_blank"} in the project `Jenkins` in the section.
+When you go now in the OpenShift [Console](https://console.c3smonkey.ch:8443/console/project/jenkins/browse/pipelines) in the project `Jenkins` in the section.
 `Builds/Pipelines` you will something like this.
-![Catalog Service Pipeline](/img/2019/multiple-project-promoting/catalog-service-pipeline-created.png)
+![Catalog Service Pipeline](/multiple-project-promoting/catalog-service-pipeline-created.png)
 
 
 ### Run Jenkins Pipeline 
@@ -282,12 +280,12 @@ build.build.openshift.io/catalog-service-pipeline-1 started
 
 After a while you will see something like this. For production deployment we configured our pipeline with a approvable step.
 
-![Catalog Service Pipeline approvable](/img/2019/multiple-project-promoting/catalog-service-pipeline-approvable.png)
+![Catalog Service Pipeline approvable](/multiple-project-promoting/catalog-service-pipeline-approvable.png)
 
 Now is time to approve the application and hit the 
 After the approve button in the pipeline to deploy to the production namespace.
 
-![Catalog Service Pipeline success](/img/2019/multiple-project-promoting/catalog-service-pipeline-success.png)
+![Catalog Service Pipeline success](/multiple-project-promoting/catalog-service-pipeline-success.png)
 
 
 ## WebHooks <a name="WebHooks"></a>
@@ -381,11 +379,10 @@ SSL verification
  By default, we verify SSL certificates when delivering payloads.
 
 
-![Add GitHub WebHook](/img/2019/multiple-project-promoting/Add-GitHub-WebHook.png)
-![GitHub WebHooks](/img/2019/multiple-project-promoting/GitHub-WebHooks.png)
+![Add GitHub WebHook](/multiple-project-promoting/Add-GitHub-WebHook.png)
+![GitHub WebHooks](/multiple-project-promoting/GitHub-WebHooks.png)
 
 
 > **_References:_**  
 >   [https://blog.openshift.com/decrease-maven-build-times-openshift-pipelines-using-persistent-volume-claim/](https://blog.openshift.com/decrease-maven-build-times-openshift-pipelines-using-persistent-volume-claim/) 
 >   [https://github.com/redhat-cop/container-pipelines/tree/master/basic-spring-boot](https://github.com/redhat-cop/container-pipelines/tree/master/basic-spring-boot)   
- 

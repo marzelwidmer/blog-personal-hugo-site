@@ -130,8 +130,8 @@ $ oc apply -f service-account-for-spring-cloud-k8s-access.yaml
 
 Now when you check che Cluster Console under _Administration/Roles_ and you search for `spring` you will find the role. 
 
-![cluster-console-search-spring-roles.png](/cluster-console-search-spring-roles.png)
-![cluster-console-spring-roles.png](/cluster-console-spring-roles.png)
+![cluster-console-search-spring-roles.png](/springboot-configmap/cluster-console-search-spring-roles.png)
+![cluster-console-spring-roles.png](/springboot-configmap/cluster-console-spring-roles.png)
 
 
 ## Deploy ConfigMap
