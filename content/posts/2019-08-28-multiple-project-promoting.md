@@ -253,7 +253,7 @@ $ oc expose dc catalog-service --port=8080
 $ oc expose svc/catalog-service
 ```
 
-## Jenkins Pipeline  <a name="JenkinsPipeline"></a>
+## Jenkins Pipeline  {#JenkinsPipeline}  
 
 So now let's create a `BuildConfig` for the `catalaog-service` with the 
 following [catalog-service-jenkins-pipeline](/multiple-project-promoting/catalog-service-pipeline.yaml) configuration
@@ -288,7 +288,7 @@ After the approve button in the pipeline to deploy to the production namespace.
 ![Catalog Service Pipeline success](/multiple-project-promoting/catalog-service-pipeline-success.png)
 
 
-## WebHooks <a name="WebHooks"></a>
+## WebHooks  {#WebHooks}  
 Now let's creat a WebHook. So when we push something in our `catalog-service` the pipeline start run. 
 Change first to the `jenkins` project again with `oc project jenkins`
 ```bash
