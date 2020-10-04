@@ -87,6 +87,27 @@ spec:
               name: 5701-tcp
               protocol: TCP
 ```
+#### Service
+Here also the important point here is the `spec.ports.hazelcast` part.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: app
+spec:
+  type: LoadBalancer
+  selector:
+    app: app
+  ports:
+    - name: 8080-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: hazelcast
+      port: 5701
+      protocol: TCP
+      targetPort: 5701
+```
 
 ### Hazelcast Configuration {#hazelcastConfiguration}
 The important part here is the `hazelcast.network.join.kubernetes.service-dns` who point to the internal service address.
