@@ -22,7 +22,7 @@ Let's get ready first our Spring Boot application with the following dependencie
     <artifactId>spring-boot-starter-cache</artifactId>
 </dependency>
 ``` 
-And also let's take the `hazelcast-all` from `com.hazelcast` that include the `k8s` dependencies.
+Also let's take the `hazelcast-all` from `com.hazelcast` that include the `k8s` dependencies.
 The version `4.x.x`  will also support `yaml` configuration of hazelcast.
 ```xml
 <dependency>
@@ -32,9 +32,9 @@ The version `4.x.x`  will also support `yaml` configuration of hazelcast.
 </dependency>
 ```
 
-Let's implement a real `foo` service with a super `Jack Norris` API for the moment.
+Let's implement a real `foo` service with a super `Chuck Norris` API for the moment.
 The API will take a string on `/api/[key]` eg. `/api/foo` this will create a `UUID` and will put it in the cache and give it back as response.
-The second call with the same key `foo` will gibve the same `UUID` if a cache hit.  
+The second call with the same key `foo` will give the same `UUID` on cache hit.  
 
 1. Let's enable the caching 
    ```@EnableCaching```
