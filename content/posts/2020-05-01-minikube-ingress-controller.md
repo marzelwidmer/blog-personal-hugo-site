@@ -391,6 +391,12 @@ kube-system       Active   19h
 k delete all -l  app=web
 ```
 
+
+## Troubleshooting
+```
+sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder
+```
+
 ---
 _References:_
 > [ingress-minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
