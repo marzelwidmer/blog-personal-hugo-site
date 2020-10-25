@@ -68,7 +68,6 @@ Forward it port `http://localhost:3000` log in with the `admin` username and `pr
 kubectl -n monitoring port-forward prometheus-grafana-bd89cc787-snlk6 3000:3000
 ```
 
-
 # Install ARGO CD {#argoCD} 
 Create a separate namespace `argocd` to install argo.
 ```
