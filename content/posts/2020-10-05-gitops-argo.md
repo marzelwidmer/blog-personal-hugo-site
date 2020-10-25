@@ -11,6 +11,7 @@ Application definitions, configurations, and environments should be declarative 
 Application deployment and lifecycle management should be automated, auditable, and easy to understand.
 
 * [Minikube Setup]({{<ref "#minikube" >}}) 
+    * [Monitoring - Grafana-Prometheus]({{<ref "#monitoring" >}}) 
 * [Install Argo CD]({{<ref "#argoCD" >}}) 
 * [Create App on Argo CD]({{<ref "#argoCreatApp" >}})
 
@@ -21,6 +22,7 @@ Local Development Environment with minikube.
 ```
 brew install hyperkit
 brew install minikube
+brew install helm
 brew install httpie
 brew install stern
 brew install argocd
@@ -48,6 +50,23 @@ Now start the minikube test cluster with some memory and cpu settings.
 minikube start --memory 6144 --cpus 4 -p test
 ```
 
+## Install Monitoring  {#monitoring} 
+Let's install Prometheus and Grafana with Helm. Add Repository and install it on the `monitoring` namespace.
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install --namespace monitoring --create-namespace prometheus prometheus-community/kube-prometheus-stack
+```
+### Forward Grafana
+Search for the Pod.
+```
+kubectl get pod -n monitoring  | grep prometheus-grafana
+prometheus-grafana-bd89cc787-snlk6                       2/2     Running   0          9m34s
+``` 
+Forward it port `http://localhost:3000` log in with the `admin` username and `prom-operator` password and you’ll see a lot of ready for user graphs
+
+```
+kubectl -n monitoring port-forward prometheus-grafana-bd89cc787-snlk6 3000:3000
+```
 
 
 # Install ARGO CD {#argoCD} 
@@ -122,7 +141,6 @@ Vary: Accept-Encoding, User-Agent
         "firstName": "John"
     }
 ]
-
 ```
 
 
