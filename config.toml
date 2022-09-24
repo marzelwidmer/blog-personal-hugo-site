@@ -2,7 +2,9 @@ baseURL = "/"
 languageCode = "en-us"
 
 #theme = "hyde"
-theme = "m10c"
+#theme = "simplog"
+#theme = "m10c"
+theme = "hugo-book"
 
 [params]
   avatar = "avatar.png"
