@@ -2,6 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 
 #theme = "indigo"
+#theme = "hello-friend-ng"
 #theme = "lithium"
 theme = "m10c"
 

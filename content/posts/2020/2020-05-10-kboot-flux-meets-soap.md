@@ -26,7 +26,7 @@ We also not have to manage a other service who will handle it for us. With this 
 * [SOAP with HTTPie Server]({{<ref "#httpieSoapCall" >}}) 
 * [Implementation]({{<ref "#implementation" >}})    
 
-![fluxMeetsSoap](/flux-meets-soap/FluxMeetsSoap.png)
+![fluxMeetsSoap](/static/flux-meets-soap/FluxMeetsSoap.png)
 
 # Flux Client  {#restAPI} 
 ## API Lockdown Switzerland

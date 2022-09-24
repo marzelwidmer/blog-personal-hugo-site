@@ -36,15 +36,15 @@ Create a Jenkins in the `Jenkins CI/CD` project with some storage. Take the Jenk
 Everything else we let the default values. 
 Login with your Openshift account to the `Jenkins BlueOcean`.  
 
-![Jenkins-From-Catalog-1](/multiple-project-promoting/Jenkins-from-catalog-1.png)
-![Jenkins-From-Catalog-2](/multiple-project-promoting/Jenkins-from-catalog-2.png)
-![Jenkins-From-Catalog-3](/multiple-project-promoting/Jenkins-from-catalog-3.png)
+![Jenkins-From-Catalog-1](/static/multiple-project-promoting/Jenkins-from-catalog-1.png)
+![Jenkins-From-Catalog-2](/static/multiple-project-promoting/Jenkins-from-catalog-2.png)
+![Jenkins-From-Catalog-3](/static/multiple-project-promoting/Jenkins-from-catalog-3.png)
 
 ## Configure Jenkins Maven Slave - Concurrency Limit
 Let's configure out `Maven-Slave` concurrency limit to `5` in order that we later want build more then one project.
 Please go to the Jenkins Configuration Page `https://<jenkins>/configure` in the section `Cloud/Kubernetes Pod Template` and search for the `Maven` Pod.
 
-![Maven-Pod-Concurrency-Limit](/multiple-project-promoting/Maven-Pod-Concurrency-Limit.png)
+![Maven-Pod-Concurrency-Limit](/static/multiple-project-promoting/Maven-Pod-Concurrency-Limit.png)
 
 
 ## Install Jenkins with CLI {#InstallJenkinsWithCLI}    
@@ -133,7 +133,7 @@ catalog-service  catalog-service-development.apps.c3smonkey.ch        catalog-se
 
 Now take a look in the OpenShift Console project `development`
 
-![catalog-service-dev-deployment](/multiple-project-promoting/catalog-service-dev-deployment.png)
+![catalog-service-dev-deployment](/static/multiple-project-promoting/catalog-service-dev-deployment.png)
 
 Let's take a look what the S2i crated for us. 
 This can be done with the following command `oc get all -n development --selector app=catalog-service`.
@@ -267,7 +267,7 @@ buildconfig.build.openshift.io/catalog-service-pipeline created
 
 When you go now in the OpenShift [Console](https://console.c3smonkey.ch:8443/console/project/jenkins/browse/pipelines) in the project `Jenkins` in the section.
 `Builds/Pipelines` you will something like this.
-![Catalog Service Pipeline](/multiple-project-promoting/catalog-service-pipeline-created.png)
+![Catalog Service Pipeline](/static/multiple-project-promoting/catalog-service-pipeline-created.png)
 
 
 ### Run Jenkins Pipeline 
@@ -280,12 +280,12 @@ build.build.openshift.io/catalog-service-pipeline-1 started
 
 After a while you will see something like this. For production deployment we configured our pipeline with a approvable step.
 
-![Catalog Service Pipeline approvable](/multiple-project-promoting/catalog-service-pipeline-approvable.png)
+![Catalog Service Pipeline approvable](/static/multiple-project-promoting/catalog-service-pipeline-approvable.png)
 
 Now is time to approve the application and hit the 
 After the approve button in the pipeline to deploy to the production namespace.
 
-![Catalog Service Pipeline success](/multiple-project-promoting/catalog-service-pipeline-success.png)
+![Catalog Service Pipeline success](/static/multiple-project-promoting/catalog-service-pipeline-success.png)
 
 
 ## WebHooks  {#WebHooks}  
@@ -379,8 +379,8 @@ SSL verification
  By default, we verify SSL certificates when delivering payloads.
 
 
-![Add GitHub WebHook](/multiple-project-promoting/Add-GitHub-WebHook.png)
-![GitHub WebHooks](/multiple-project-promoting/GitHub-WebHooks.png)
+![Add GitHub WebHook](/static/multiple-project-promoting/Add-GitHub-WebHook.png)
+![GitHub WebHooks](/static/multiple-project-promoting/GitHub-WebHooks.png)
 
 
 > **_References:_**  

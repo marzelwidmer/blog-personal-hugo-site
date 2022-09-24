@@ -91,7 +91,7 @@ argocd login localhost:8080
 argocd account update-password
 ```
 
-![Argo](/gitops-argo/argo.png)
+![Argo](/static/gitops-argo/argo.png)
 
 
 # Create App with directory-recurse {#argoCreatApp} 

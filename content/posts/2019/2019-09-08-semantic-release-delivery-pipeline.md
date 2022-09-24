@@ -89,7 +89,7 @@ First you have to create an `AccessToken` in your [GitHub Tokens Settings](https
 add `repo` and `user` access because this token will be used for `Semantic Release`
 
  
-![openshift-source-builder-github-token](/semantic-release-delivery-pipeline/openshift-source-builder-github-token.png)
+![openshift-source-builder-github-token](/static/semantic-release-delivery-pipeline/openshift-source-builder-github-token.png)
 
 ```bash
 $ oc create secret generic ci-user-at-github \
@@ -109,11 +109,11 @@ $ oc set build-secret bc/customer-service-pipeline ci-user-at-github --source
 
 When you check now the Jenkins you will see the `ci-user-at-github` under credentials `https://<jenkins-url>/credentials/` 
 
-![sync.jenkins](/semantic-release-delivery-pipeline/sync.jenkins.openshift.io.png)
+![sync.jenkins](/static/semantic-release-delivery-pipeline/sync.jenkins.openshift.io.png)
 
 You will also find the a secret `ci-user-at-github` in the `jenkins` project in the OpenShift console.
 
-![secret-ci-user-at-github](/semantic-release-delivery-pipeline/secret-ci-user-at-github.png)
+![secret-ci-user-at-github](/static/semantic-release-delivery-pipeline/secret-ci-user-at-github.png)
 
 
 ## Semantic Release Jenkins Pipeline  {#SemanticReleaseJenkinsPipeline}
@@ -125,7 +125,7 @@ release workflow including: determining the next version number, generating the 
 In the case I don't found any Maven PlugIn who works in my setup _out-of-the-box_ and I am running here in a `Maven Slave` and don't want create a` Maven-Node Slave`
 I chose to follow a setup with just Git commands and a combination with the [jgitver-maven-plugin](https://github.com/jgitver/jgitver-maven-plugin).
 
- ![okd-customer-service-pipeline](/semantic-release-delivery-pipeline/okd-customer-service-pipeline.png)
+ ![okd-customer-service-pipeline](/static/semantic-release-delivery-pipeline/okd-customer-service-pipeline.png)
 
 After pushing some code in the `customer-service` repository the Jenkins pipeline start run. 
 It will be tag the source repository if needed based on the commit message inspired on the follow [commit message format](https://github.com/semantic-release/semantic-release#commit-message-format).
@@ -139,16 +139,16 @@ It will be tag the source repository if needed based on the commit message inspi
 
 It will also create the image tags if needed.
 
-![okd-customer-service-image-tags](/semantic-release-delivery-pipeline/okd-customer-service-image-tags.png)
+![okd-customer-service-image-tags](/static/semantic-release-delivery-pipeline/okd-customer-service-image-tags.png)
 
 Take also a look at the [Jenkins BlueOcean](https://jenkins.io/projects/blueocean/) pipeline. 
 
-![blueocean-customer-service-pipeline](/semantic-release-delivery-pipeline/blueocean-customer-service-pipeline.png)
+![blueocean-customer-service-pipeline](/static/semantic-release-delivery-pipeline/blueocean-customer-service-pipeline.png)
 
 Or at the deployed _customer-service_.
 
 [Customer Service Swagger](http://customer-service-production.apps.c3smonkey.ch/swagger-ui.html)
-![customer-service-swagger.png](/semantic-release-delivery-pipeline/customer-service-swagger.png)
+![customer-service-swagger.png](/static/semantic-release-delivery-pipeline/customer-service-swagger.png)
 
 
 The _changelog_ you can find under [Changelog](https://jenkins-jenkins.apps.c3smonkey.ch/job/jenkins/job/jenkins-customer-service-pipeline/lastSuccessfulBuild/artifact/target/changelog.html)

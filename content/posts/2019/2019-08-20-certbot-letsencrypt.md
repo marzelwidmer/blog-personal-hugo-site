@@ -13,7 +13,7 @@ Inspiration from [Adding an SSL certificate to OKD - Part 2 of Installation of O
 ## Check Certificate
 Let`s check first if there a certificate already for our domain [https://crt.sh/?q=c3smonkey.ch](https://crt.sh/?q=c3smonkey.ch) 
 
-![crt](/certbot/crt.png)
+![crt](/static/certbot/crt.png)
 
     
 ## Check EPEL Reposittory
@@ -121,7 +121,7 @@ $ [root@c3smonkey ~]# certbot certonly --server https://acme-v02.api.letsencrypt
 ```
 After this command you see something like this
 
-![certbot-result](/certbot/certbot-result.png)
+![certbot-result](/static/certbot/certbot-result.png)
 
 The certificate are located under `/etc/letsencrypt/live/console.c3smonkey.ch/`
 ```bash
@@ -189,7 +189,7 @@ The first one we will apply is the `prerequisites` playbook to check if everythi
 $ [root@c3smonkey installcentos]# ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml
 ```
 
-![prerequisites](/certbot/prerequisites.png)
+![prerequisites](/static/certbot/prerequisites.png)
 
 
 Lets play the second playbook who will replace the certificate we just created.
@@ -204,11 +204,11 @@ or run `playbooks/openshift-master/config.yml`
 $ [root@c3smonkey installcentos]# ansible-playbook -i inventory.ini openshift-ansible/playbooks/openshift-master/config.yml
 ```
 
-![deploy_cluster-failed](/certbot/deploy_cluster-failed.png)
+![deploy_cluster-failed](/static/certbot/deploy_cluster-failed.png)
 
 
 This will take a time dependence of your host.
-![htop](/certbot/openshift-certbot/htop.png)
+![htop](/static/certbot/openshift-certbot/htop.png)
 
 
 Now reboot the cluster with `shutdown -r now`
@@ -217,7 +217,7 @@ $ [root@c3smonkey installcentos]# shutdown -r now
 ```
 
 Let us check the certificate [https://crt.sh/?q=c3smonkey.ch](https://crt.sh/?q=c3smonkey.ch)
-![crt](/certbot/crt-lets-encrypt.png)
+![crt](/static/certbot/crt-lets-encrypt.png)
 
 Open a new tab and open the [https://console.c3smonkey.ch:8443/](https://console.c3smonkey.ch:8443/) to check if the certificate are installed successfully.
 
