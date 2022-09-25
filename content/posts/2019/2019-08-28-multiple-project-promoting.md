@@ -3,7 +3,7 @@ title: Promoting Applications Across Environments
 subTitle: Build and ship
 date: "2019-09-18"
 draft: false
-tags: [K8s, SpringBoot]
+tags: [k8s, SpringBoot, CI/CD]
 categories: [Kubernetes]
 ---
 # Table of contents

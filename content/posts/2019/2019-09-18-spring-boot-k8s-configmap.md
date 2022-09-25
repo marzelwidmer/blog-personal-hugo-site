@@ -3,7 +3,7 @@ title: Spring Boot Kubernetes ConfigMap
 subTitle: Integrate Spring Boot with Kubernetes ConfigMap
 date: "2019-09-18"
 draft: false
-tags: [K8s, SpringBoot]
+tags: [k8s, SpringBoot, ConfigMap]
 categories: [Kubernetes]
 ---
 

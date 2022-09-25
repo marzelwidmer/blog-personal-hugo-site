@@ -1,11 +1,27 @@
 ---
 title: Kubernetes Ingress with Ngnix Ingress Controller
-subTitle: Set up Ingress on Minikube with the Ngnix Ingress Controller
+subTitle: Set up Ingress on Minikube with the Ngnix Ingress Controller  
 date: "2020-05-01"
 draft: false
-tags: [K8s]
+tags: [k8s]
 categories: [Kubernetes]
---- 
+---
+
+[//]: # (---)
+
+[//]: # (title: Kubernetes Ingress with Ngnix Ingress Controller)
+
+[//]: # (subTitle: Set up Ingress on Minikube with the Ngnix Ingress Controller)
+
+[//]: # (date: "2020-05-01")
+
+[//]: # (draft: false)
+
+[//]: # (tags: [K8s])
+
+[//]: # (categories: [Kubernetes])
+
+[//]: # (--- )
 
 # OSX Minikube Kubernetes 
 If you use `ohmyzsh`  is there a nice Plugin with some `kubectl` for more details check [ohmyzsh plugins kubectl](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl) 

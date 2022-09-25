@@ -3,7 +3,7 @@ title: Semantic Release Delivery Pipeline
 subTitle: Semantic Release with Jenkins Maven Fabric8 Delivery Pipeline
 date: "2019-09-08"
 draft: false
-tags: [K8s]
+tags: [k8s, CI/CD]
 categories: [Kubernetes]
 ---
 

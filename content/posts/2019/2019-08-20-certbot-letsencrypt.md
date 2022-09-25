@@ -3,7 +3,7 @@ title: Certbot Let`s Encrypt
 subTitle: 
 date: "2019-01-13"
 draft: false
-tags: [K8s]
+tags: [k8s, Certbot, Let's Encrypt]
 categories: [Kubernetes]
 ---
 

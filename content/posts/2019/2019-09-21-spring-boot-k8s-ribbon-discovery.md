@@ -3,8 +3,8 @@ title: Spring Boot Kubernetes Discovery
 subTitle: Discovery Spring Boot in Kubernetes
 date: "2019-09-18"
 draft: false
-tags: [K8s, SpringBoot]
-categories: [Kubernetes]
+tags: [k8s, SpringBoot, Kotlin, Ribbon]
+categories: [Kubernetes, Development]
 ---
  
 [Spring Cloud Kubernetes Ribbon](https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.0.M2/reference/html/#_ribbon_discovery_in_kubernetes) 
