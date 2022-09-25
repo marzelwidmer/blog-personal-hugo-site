@@ -4,7 +4,6 @@ subTitle: Set up Argo CD on Minikube
 date: "2020-10-25"
 draft: false
 tags: [k8s, argocd, gitops]
-categories: [Kubernetes]
 --- 
 [Argo CD](https://argoproj.github.io/argo-cd/) is a declarative, GitOps continuous delivery tool for Kubernetes.
 Application definitions, configurations, and environments should be declarative and version controlled. 

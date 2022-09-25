@@ -4,7 +4,6 @@ subTitle: Install Single Node OKD on Hetzner Cloud # Add post description
 date: "2019-01-13"
 draft: false
 tags: [k8s, OKD, Hetzner Cloud]
-categories: [Kubernetes]
 ---
 
 Inspiration from [Installation of OKD 3.10 from start to finish](https://www.youtube.com/watch?v=ZkFIozGY0IA)

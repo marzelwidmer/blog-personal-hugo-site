@@ -4,7 +4,6 @@ subTitle:
 date: "2019-01-13"
 draft: false
 tags: [k8s, Certbot, Let's Encrypt]
-categories: [Kubernetes]
 ---
 
 Inspiration from [Adding an SSL certificate to OKD - Part 2 of Installation of OKD 3.10 from start to finish]https://www.youtube.com/watch?v=S7HoJ09oYn0&feature=youtu.be){:target="_blank"}

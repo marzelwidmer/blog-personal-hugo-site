@@ -4,25 +4,8 @@ subTitle: Create Maven Spring Project with HTTPie from start.spring.io - Spring 
 date: "2020-04-12"
 draft: false
 tags: [SpringBoot, Kotlin]
-categories: [Development]
 ---
-
-[//]: # (---)
-
-[//]: # (title: Create Kotlin Project with Spring Initializr and HTTPie)
-
-[//]: # (subTitle: Create Maven Spring Project with HTTPie from start.spring.io - Spring Boot - Maven)
-
-[//]: # (date: "2020-04-12")
-
-[//]: # (draft: false)
-
-[//]: # (tags: [Spring Boot, Kotlin])
-
-[//]: # (categories: [Development])
-
-[//]: # (--- )
-                                                                                                                
+                                                                                                             
 # Create Kotlin Maven Project with HTTPie from start.spring.io 
 Let's create and extract a `Maven` `Kotlin` project with some dependencies `actuator` `data-mongodb-reactive` `webflux` and `cloud-gateway`
 The `https://start.spring.io`

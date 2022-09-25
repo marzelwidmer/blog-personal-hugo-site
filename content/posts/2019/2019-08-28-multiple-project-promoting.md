@@ -4,7 +4,6 @@ subTitle: Build and ship
 date: "2019-09-18"
 draft: false
 tags: [k8s, SpringBoot, CI/CD]
-categories: [Kubernetes]
 ---
 # Table of contents
 * [Create Project]({{<ref "#CreateProject" >}}) 

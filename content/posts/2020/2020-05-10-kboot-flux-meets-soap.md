@@ -4,7 +4,6 @@ subTitle: Leading edge meets legacy
 date: "2020-05-10"
 draft: false
 tags: [SpringBoot, Kotlin, WebFlux]
-categories: [Development]
 ---
 
 This will demonstrate how we can deal with a `Blocking API` in a `Reactive World`.
