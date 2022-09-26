@@ -3,7 +3,8 @@ title: Create Kotlin Project with Spring Initializr and HTTPie
 subTitle: Create Maven Spring Project with HTTPie from start.spring.io - Spring Boot - Maven  
 date: "2020-04-12"
 draft: false
-tags: [SpringBoot, Kotlin]
+tags: [Spring Boot]
+categories: [Development]
 ---
                                                                                                              
 # Create Kotlin Maven Project with HTTPie from start.spring.io 

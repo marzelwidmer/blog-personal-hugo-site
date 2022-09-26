@@ -3,7 +3,8 @@ title: Spring Boot Kubernetes ConfigMap
 subTitle: Integrate Spring Boot with Kubernetes ConfigMap
 date: "2019-09-18"
 draft: false
-tags: [k8s, SpringBoot, ConfigMap]
+tags: [k8s, ConfigMap, Spring Boot]
+categories: [k8s]
 ---
 
 Now is time to configure our [microservices](https://github.com/marzelwidmer/microservices-demo) to send the tracing 

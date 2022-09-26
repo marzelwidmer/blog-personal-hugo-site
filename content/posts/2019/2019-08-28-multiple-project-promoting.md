@@ -3,7 +3,8 @@ title: Promoting Applications Across Environments
 subTitle: Build and ship
 date: "2019-09-18"
 draft: false
-tags: [k8s, SpringBoot, CI/CD]
+tags: [k8s, CI/CD, Spring Boot]
+categories: [k8s]
 ---
 # Table of contents
 * [Create Project]({{<ref "#CreateProject" >}}) 

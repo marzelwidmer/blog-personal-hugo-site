@@ -3,7 +3,8 @@ title: Reactive Spring Boot with Resilience4j CircuitBreaker
 subTitle: Resilience4j - CircuitBreaker with Kotlin Reactive Spring Boot Application  
 date: "2020-04-18"
 draft: false
-tags: [SpringBoot, Kotlin]
+tags: [Spring Boot]
+categories: [Development]
 ---
 
 ## Create Project

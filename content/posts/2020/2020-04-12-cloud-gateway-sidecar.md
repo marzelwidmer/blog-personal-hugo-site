@@ -3,7 +3,8 @@ title: Spring Cloud Gateway
 subTitle: Spring Cloud Gateway as Sidecar  
 date: "2020-04-16"
 draft: false
-tags: [SpringBoot, Kotlin, WebFlux]
+tags: [Spring Boot]
+categories: [Development]
 ---
  
 This sample show how easy you can put on an existing `API` the `Spring Cloud Gateway` as kind of `SideCar` where you can manage your Security, Logging etc. 

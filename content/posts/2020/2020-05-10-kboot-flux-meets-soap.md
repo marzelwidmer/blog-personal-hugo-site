@@ -3,7 +3,6 @@ title: Kboot Flux Meets Soap
 subTitle: Leading edge meets legacy
 date: "2020-05-10"
 draft: false
-tags: [SpringBoot, Kotlin, WebFlux]
 ---
 
 This will demonstrate how we can deal with a `Blocking API` in a `Reactive World`.

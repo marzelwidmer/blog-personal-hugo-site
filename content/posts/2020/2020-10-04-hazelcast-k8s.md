@@ -3,7 +3,8 @@ title: Kubernetes Hazelcast Distributed Caching
 subTitle: Spring Boot with Embedded Hazelcast Distributed Caching on Openshift  
 date: "2020-10-04"
 draft: false
-tags: [k8s, SpringBoot, Kotlin, Caching]
+tags: [k8s, Spring Boot, Kotlin, Caching]
+categories: [Development]
 ---
 The sample code can be found on GitHub. [^GitHub] 
 
