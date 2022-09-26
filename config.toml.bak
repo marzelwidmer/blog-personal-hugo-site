@@ -4,7 +4,8 @@ title = "c3smonkey's blog"
 # title = "c3smonkey.ch"
 #theme = "kraiklyn"
 # theme = "indigo"
- theme = "simplog"
+#theme = "simplog"
+theme = "simplog"
 
 [params]
 avatar = "avatar.png"

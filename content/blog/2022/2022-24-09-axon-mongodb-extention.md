@@ -1,11 +1,15 @@
 ---
-title: Axon Framework - MongoDB extension
-subTitle: AxonIQ - Spring Boot - MongoDB extension - CQRS  
+author: "Marcel Widmer"
 date : "2022-09-24"
-draft: false
+title: Axon Framework - MongoDB extension
+description: "AxonIQ - Spring Boot - MongoDB extension - CQRS"
 tags: [Spring Boot, Axon, CQRS]
 categories: [Development]
+ShowToc: true
+TocOpen: true
 ---
+
+
 
 
 ![axon-cqrs](/static/axon/axon-cqrs.jpg)
