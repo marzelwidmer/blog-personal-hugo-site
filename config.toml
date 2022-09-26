@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://blog.marcelwidmer.org"
 languageCode = "en-us"
 title = "c3smonkey's blog"
 # title = "c3smonkey.ch"
