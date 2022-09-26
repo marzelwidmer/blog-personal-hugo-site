@@ -5,6 +5,8 @@ date: "2020-04-16"
 draft: false
 tags: [Spring Boot]
 categories: [Development]
+ShowToc: true
+TocOpen: true
 ---
  
 This sample show how easy you can put on an existing `API` the `Spring Cloud Gateway` as kind of `SideCar` where you can manage your Security, Logging etc. 

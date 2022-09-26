@@ -5,6 +5,8 @@ date: "2019-09-18"
 draft: false
 tags: [k8s, ConfigMap, Spring Boot]
 categories: [k8s]
+ShowToc: true
+TocOpen: true
 ---
 
 Now is time to configure our [microservices](https://github.com/marzelwidmer/microservices-demo) to send the tracing 

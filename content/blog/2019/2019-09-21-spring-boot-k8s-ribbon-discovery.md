@@ -5,6 +5,8 @@ date: "2019-09-18"
 draft: false
 tags: [k8s, Spring Boot]
 categories: [k8s]
+ShowToc: true
+TocOpen: true
 ---
  
 [Spring Cloud Kubernetes Ribbon](https://cloud.spring.io/spring-cloud-static/spring-cloud-kubernetes/1.1.0.M2/reference/html/#_ribbon_discovery_in_kubernetes) 

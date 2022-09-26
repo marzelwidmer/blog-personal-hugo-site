@@ -5,6 +5,8 @@ date: "2020-10-25"
 draft: false
 tags: [k8s, argocd, gitops]
 categories: [k8s]
+ShowToc: true
+TocOpen: true
 --- 
 [Argo CD](https://argoproj.github.io/argo-cd/) is a declarative, GitOps continuous delivery tool for Kubernetes.
 Application definitions, configurations, and environments should be declarative and version controlled. 

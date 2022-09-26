@@ -5,14 +5,22 @@ date: "2019-09-08"
 draft: false
 tags: [k8s, CI/CD]
 categories: [k8s]
+ShowToc: true
+TocOpen: true
 ---
 
-# Table of contents
-* [Setup Deployment]({{<ref "#SetupDeployment" >}}) 
-* [Jenkins Pipeline]({{<ref "#JenkinsPipeline" >}})
-* [WebHooks]({{<ref "#WebHooks" >}})
-* [Private Repository]({{<ref "#privateRepo" >}})
-* [Semantic Release Jenkins Pipeline]({{<ref "#SemanticReleaseJenkinsPipeline" >}})
+[//]: # ()
+[//]: # (# Table of contents)
+
+[//]: # (* [Setup Deployment]&#40;{{<ref "#SetupDeployment" >}}&#41; )
+
+[//]: # (* [Jenkins Pipeline]&#40;{{<ref "#JenkinsPipeline" >}}&#41;)
+
+[//]: # (* [WebHooks]&#40;{{<ref "#WebHooks" >}}&#41;)
+
+[//]: # (* [Private Repository]&#40;{{<ref "#privateRepo" >}}&#41;)
+
+[//]: # (* [Semantic Release Jenkins Pipeline]&#40;{{<ref "#SemanticReleaseJenkinsPipeline" >}}&#41;)
  
 
 ## Setup Deployment  {#SetupDeployment}

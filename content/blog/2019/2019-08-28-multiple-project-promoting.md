@@ -5,19 +5,33 @@ date: "2019-09-18"
 draft: false
 tags: [k8s, CI/CD, Spring Boot]
 categories: [k8s]
+ShowToc: true
+TocOpen: true
 ---
-# Table of contents
-* [Create Project]({{<ref "#CreateProject" >}}) 
-* [Install Jenkins]({{<ref "#InstallJenkins" >}}) / [Install Jenkins With CLI]({{<ref "#InstallJenkins" >}}) 
-* [Add Edit Role To ServiceAccount Jenkins]({{<ref "#AddEditRoleToServiceAccountJenkins" >}})  
-* [Add Role To Group]({{<ref "#AddRoleToGroup" >}})  
-* [Deploy Application]({{<ref "#DeployApplication" >}})
-* [Development Environment Deployment ]({{<ref "#DevelopmentEnvironmentDeployment" >}}) 
-* [Test API]({{<ref "#TestAPI" >}})
-* [Testing Environment Deployment]({{<ref "#TestingEnvironmentDeployment" >}})
-* [Production Environment Deployment]({{<ref "#ProductionEnvironmentDeployment" >}})
-* [Jenkins Pipeline]({{<ref "#JenkinsPipeline" >}}) 
-* [WebHooks]({{<ref "#WebHooks" >}})
+
+[//]: # (# Table of contents)
+
+[//]: # (* [Create Project]&#40;{{<ref "#CreateProject" >}}&#41; )
+
+[//]: # (* [Install Jenkins]&#40;{{<ref "#InstallJenkins" >}}&#41; / [Install Jenkins With CLI]&#40;{{<ref "#InstallJenkins" >}}&#41; )
+
+[//]: # (* [Add Edit Role To ServiceAccount Jenkins]&#40;{{<ref "#AddEditRoleToServiceAccountJenkins" >}}&#41;  )
+
+[//]: # (* [Add Role To Group]&#40;{{<ref "#AddRoleToGroup" >}}&#41;  )
+
+[//]: # (* [Deploy Application]&#40;{{<ref "#DeployApplication" >}}&#41;)
+
+[//]: # (* [Development Environment Deployment ]&#40;{{<ref "#DevelopmentEnvironmentDeployment" >}}&#41; )
+
+[//]: # (* [Test API]&#40;{{<ref "#TestAPI" >}}&#41;)
+
+[//]: # (* [Testing Environment Deployment]&#40;{{<ref "#TestingEnvironmentDeployment" >}}&#41;)
+
+[//]: # (* [Production Environment Deployment]&#40;{{<ref "#ProductionEnvironmentDeployment" >}}&#41;)
+
+[//]: # (* [Jenkins Pipeline]&#40;{{<ref "#JenkinsPipeline" >}}&#41; )
+
+[//]: # (* [WebHooks]&#40;{{<ref "#WebHooks" >}}&#41;)
 
 
 ## Create Project  {#CreateProject} 

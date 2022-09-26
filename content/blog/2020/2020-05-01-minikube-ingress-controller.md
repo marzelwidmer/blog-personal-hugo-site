@@ -4,6 +4,8 @@ subTitle: Set up Ingress on Minikube with the Ngnix Ingress Controller
 date: "2020-05-01"
 draft: false
 tags: [k8s]
+ShowToc: true
+TocOpen: true
 ---
 
 # OSX Minikube Kubernetes 

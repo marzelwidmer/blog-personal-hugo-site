@@ -5,12 +5,16 @@ date: "2020-10-04"
 draft: false
 tags: [k8s, Spring Boot, Kotlin, Caching]
 categories: [Development]
+ShowToc: true
+TocOpen: true
 ---
 The sample code can be found on GitHub. [^GitHub] 
 
-* [Precondition Spring Caching with Hazelcast]({{<ref "#precondition" >}}) 
-* [Kustomize Configuration]({{<ref "#kustomize" >}}) 
-* [Hazelcast Configuration]({{<ref "#hazelcastConfiguration" >}}) 
+[//]: # (* [Precondition Spring Caching with Hazelcast]&#40;{{<ref "#precondition" >}}&#41; )
+
+[//]: # (* [Kustomize Configuration]&#40;{{<ref "#kustomize" >}}&#41; )
+
+[//]: # (* [Hazelcast Configuration]&#40;{{<ref "#hazelcastConfiguration" >}}&#41; )
 
 
 ### Precondition Spring Caching with Hazelcast {#precondition}

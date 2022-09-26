@@ -4,6 +4,8 @@ subTitle: Apache Camel integration framework
 date: "2020-05-04"
 draft: false
 tags: [Spring Boot]
+ShowToc: true
+TocOpen: true
 ---
 Apache Camel is an open source integration framework that empowers you to quickly and easily integrate various systems consuming or producing data.
 
