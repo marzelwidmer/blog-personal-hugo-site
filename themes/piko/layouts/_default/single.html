@@ -16,10 +16,10 @@
     <div>
       {{- if (.Param "ShowToc") }}
         <article class="toc">
-          {{- partial "toc.html" . }} 
+          {{- partial "toc.html" . }}
         </article>
       {{- end }}
-      
+
       {{if .Params.Cover.Image }}<img
         class="cover"
         src="{{.Params.Cover.Image | absURL}}"
@@ -30,9 +30,9 @@
       >
       </img
       >{{end}}
-    
+
       <div class="post">
-        
+
         {{ partial "social-share.html" . }} {{- if not (.Param
         "disableAnchoredHeadings") }} {{- partial "anchored_headings.html"
         .Content -}} {{- else }}{{ .Content }}{{ end }}
@@ -40,8 +40,8 @@
 
       {{ partial "social-share.html" . }}
     </div>
-    
-    {{- if (.Param "ShowRelated") }} 
+
+    {{- if (.Param "ShowRelated") }}
     <aside>
       <article>
         {{ $related := .Site.RegularPages.Related . | first 5 }} {{ with
@@ -57,11 +57,11 @@
           </hgroup>
         </a>
 
-        {{ end }} {{ end }} 
+        {{ end }} {{ end }}
       </article>
     </aside>
     {{ end }}
-    
+
   </div>
   {{- if (.Site.Params.comments) }} {{- partial "comments.html" . }} {{- end }}
 </div>

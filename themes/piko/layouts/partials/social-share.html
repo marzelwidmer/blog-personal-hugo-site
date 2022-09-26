@@ -14,7 +14,7 @@
 {{- with $ShareButtons }}{{ $custom = true }}{{ end }}
 
 <div class="share-buttons">
-    {{- if (cond ($custom) (in $ShareButtons "twitter") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "twitter") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on twitter"
         href="https://twitter.com/intent/tweet/?text={{ $title }}&amp;url={{ $pageurl }}&amp;hashtags={{- $.Scratch.Get "tags" -}}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
@@ -23,7 +23,7 @@
         </svg>
     </a>
     {{- end }}
-    {{- if (cond ($custom) (in $ShareButtons "linkedin") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "linkedin") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on linkedin"
         href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $pageurl }}&amp;title={{ $title }}&amp;summary={{ $title }}&amp;source={{ $pageurl }}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
@@ -32,7 +32,7 @@
         </svg>
     </a>
     {{- end }}
-    {{- if (cond ($custom) (in $ShareButtons "reddit") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "reddit") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on reddit"
         href="https://reddit.com/submit?url={{ $pageurl }}&title={{ $title }}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
@@ -41,7 +41,7 @@
         </svg>
     </a>
     {{- end }}
-    {{- if (cond ($custom) (in $ShareButtons "facebook") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "facebook") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on facebook"
         href="https://facebook.com/sharer/sharer.php?u={{ $pageurl }}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
@@ -50,7 +50,7 @@
         </svg>
     </a>
     {{- end }}
-    {{- if (cond ($custom) (in $ShareButtons "whatsapp") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "whatsapp") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on whatsapp"
         href="https://api.whatsapp.com/send?text={{ $title }}%20-%20{{ $pageurl }}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
@@ -59,7 +59,7 @@
         </svg>
     </a>
     {{- end }}
-    {{- if (cond ($custom) (in $ShareButtons "telegram") (true)) }}
+    {{- if (cond ($custom) (in $ShareButtons "telegram") (false)) }}
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on telegram"
         href="https://telegram.me/share/url?text={{ $title }}&amp;url={{ $pageurl }}">
         <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
