@@ -1,7 +1,7 @@
 ---
 author: "Marcel Widmer"
 date : "2022-09-24"
-title: Axon Framework with MongoDB extension and Onion Architecture
+title: Axon Framework with MongoDB extension and Onion Architecture - Part 1
 description: "AxonIQ - Spring Boot - MongoDB extension - CQRS"
 tags: [Spring Boot, Axon, CQRS]
 categories: [Development]
