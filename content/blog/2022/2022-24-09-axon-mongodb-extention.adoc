@@ -17,12 +17,12 @@ We will disable the Axon Server and replaced it with the [MongoDB extension](htt
 
 For more information on anything Axon, please visit our website, [Axon Framework](https://www.axoniq.io).
 
-# Commands / Events Query 
+= Commands / Events Query
 - A command tells our application to do something
 - An event is a notification of something that _has_ happened.
 - Queries could be _simplified_ by storing a copy of the data in a form easily In many cases, updating the query models can happen asynchronously from processing the transaction: _eventual consistency_
 
-# Project Setup
+= Project Setup
 
 Let's create a Maven Spring Boot project with the following dependencies from [start.spring.io](https://start.spring.io)
 - actuator
@@ -31,7 +31,9 @@ Let's create a Maven Spring Boot project with the following dependencies from [s
 - reactive mongodb
 
 Run the following commands :
-```shell
+[source,bash]
+.Create Spring Boot project
+----
 export KBOOT_NAME=kboot-axon
 export KBOOT_APPL_NAME=KbootAxonDemoApplication
 export KBOOT_APPL_DESC="Axon Demo Project"
@@ -49,13 +51,16 @@ http https://start.spring.io/starter.tgz \
     javaVersion==$KBOOT_JAVA_VERS \
     language==kotlin \
     baseDir==$KBOOT_NAME| tar -xzvf -
-``` 
+----
 
 Change in de folder :
-- add `banner.txt` 
+- add `banner.txt`
 - replace `application.properties` with `application.yaml` configuration file.
 
-```shell
+
+[source,bash]
+.Replace application.properties with application.yaml
+----
 cd $KBOOT_NAME
 
 http https://raw.githubusercontent.com/marzelwidmer/marzelwidmer.github.io/master/img/banner.txt \
@@ -66,41 +71,56 @@ rm src/main/resources/application.properties
 echo "spring:
   application:
     name: $KBOOT_NAME" | > src/main/resources/application.yaml
-```
+----
 
-## Onion Architecture 
+## Onion Architecture
 
 ![ports-and-adapters](/static/axon/ports-and-adapter.png)
 
 
-folder structure 
+folder structure
 
-```shell
+[source,bash]
+.Application Level Source Folder Structure
+----
 .
-├── application  (1)
-├── domain  (2)
-└── infrastructure  (3)
+├── application <1>
+├── domain <2>
+└── infrastructure <3>
     ├── api
     ├── client
     ├── configuration
     ├── exception
     ├── logging
-    ├── mongo
     └── persistence
-```
-    
-1. Application services responsible for providing access to the domain to external clients. An application service orchestrates use cases, but does not contain business logic.
+----
 
-2. Core Domain Model, Entity, ValueObject (DDD) 
+<1> Application services responsible for providing access to the domain to external clients. An application service orchestrates use cases, but does not contain business logic.
+<2> Entity, ValueObject `DDD` Core Domain Model
+<3> Infrastructure services. An infrastructure service provides functionality to the domain that requires additional infrastructure only available outside of the domain. The infrastructure service interface forms part of the domain, the implementation is part of the infrastructure.
+<4> Persistence logic
+<5> `MongoDB` implementation of the persistence logic
+<6> `Presentation` implementation of the presentation API
+<7> `Downstream WebClient` implementation (Adapter) of the downstream service
 
-3. Infrastructure services. An infrastructure service provides functionality to the domain that requires additional infrastructure only available outside the domain. The infrastructure service interface forms part of the domain, the implementation is part of the infrastructure.
 
+== Standalone Mode
 
-```shell
-mkdir -p src/main/kotlin/${KBOOT_PACKAGE_NAME//.///}/{infrastructure/{persistence,logging,exception,configuration,client,mongo,api},application,domain}
-```
+[source,bash]
+.Start SpringBoot application with default profile
+----
+SPRING_PROFILES_ACTIVE=default mvn clean spring-boot:run
+----
 
-```shell
+[source,bash]
+.Create Onion (Hexagonal) folder structure
+----
+mkdir -p src/main/kotlin/${KBOOT_PACKAGE_NAME//.///}/{infrastructure/{persistence/mongo,logging,exception,configuration,client,api},application,domain}
+----
+
+[source,bash]
+.Top Level Source Folder Structure
+----
 .
 └── src
     ├── main
@@ -116,19 +136,22 @@ mkdir -p src/main/kotlin/${KBOOT_PACKAGE_NAME//.///}/{infrastructure/{persistenc
     │   │                   ├── configuration
     │   │                   ├── exception
     │   │                   ├── logging
-    │   │                   ├── mongo
     │   │                   └── persistence
+    │   │                       └── mongo
     │   └── resources
     └── test
         └── kotlin
             └── ch
                 └── keepcalm
                     └── demo
-```
+----
 
 Let's modify the _pom.xml_ to handle `HATEOAS` with `WebFlux`.
 Search the `spring-boot-starter-hateoas` dependency and exclude the `spring-boot-starter-web`
-```xml
+
+[source,xml]
+.exclude spring-boot-starter-web from spring-boot-starter-hateoas
+----
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-hateoas</artifactId>
@@ -139,6 +162,6 @@ Search the `spring-boot-starter-hateoas` dependency and exclude the `spring-boot
         </exclusion>
     </exclusions>
 </dependency>
-```
+----
 
 
