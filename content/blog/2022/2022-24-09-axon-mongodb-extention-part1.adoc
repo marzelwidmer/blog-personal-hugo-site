@@ -17,7 +17,7 @@ We will disable the Axon Server and replaced it with the [MongoDB extension](htt
 
 For more information on anything Axon, please visit our website, [Axon Framework](https://www.axoniq.io).
 
-= Commands / Events Query
+= Commands / Events and Query
 
     - A command tells our application to do something
     - An event is a notification of something that _has_ happened.
