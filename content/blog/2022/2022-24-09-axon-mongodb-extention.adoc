@@ -9,23 +9,7 @@ ShowToc: true
 TocOpen: true
 ---
 
-:toc: left
-:doctype: book
-:sectanchors:
-:copyright: ©
-:dot: .
-:ellipsis: …
-:hatch: #
-:pilcrow: ¶
-:star: *
-:tilde: ~
-:ul: _
-:revnumber: {project-version}
-ifndef::image[:image: /static/axon/]
-
-
-image::../static/axon/axon-cqrs.jpg[axon-cqrs]
-
+image::/static/axon/axon-cqrs.jpg[]
 
 In this blog post we look into [Axon Framework](https://www.axoniq.io) is a framework for building evolutionary, event-driven microservice systems, based on the principles of Domain Driven Design, Command-Query Responsibility Segregation (CQRS) and Event Sourcing.
 
@@ -34,9 +18,11 @@ We will disable the Axon Server and replaced it with the [MongoDB extension](htt
 For more information on anything Axon, please visit our website, [Axon Framework](https://www.axoniq.io).
 
 = Commands / Events Query
-- A command tells our application to do something
-- An event is a notification of something that _has_ happened.
-- Queries could be _simplified_ by storing a copy of the data in a form easily In many cases, updating the query models can happen asynchronously from processing the transaction: _eventual consistency_
+
+    - A command tells our application to do something
+    - An event is a notification of something that _has_ happened.
+    - Queries could be _simplified_ by storing a copy of the data in a form easily In many cases, updating the query models can happen asynchronously from processing the transaction: _eventual consistency_
+
 
 = Project Setup
 
@@ -92,8 +78,7 @@ echo "spring:
 == Onion Architecture
 
 
-image::../static/axon/ports-and-adapter.png[ports-and-adapters]
-
+image::/static/axon/ports-and-adapter.png[]
 
 folder structure
 
@@ -120,14 +105,6 @@ folder structure
 <6> `Presentation` implementation of the presentation API
 <7> `Downstream WebClient` implementation (Adapter) of the downstream service
 
-
-== Standalone Mode
-
-[source,bash]
-.Start SpringBoot application with default profile
-----
-SPRING_PROFILES_ACTIVE=default mvn clean spring-boot:run
-----
 
 [source,bash]
 .Create Onion (Hexagonal) folder structure
@@ -182,3 +159,12 @@ Search the `spring-boot-starter-hateoas` dependency and exclude the `spring-boot
 ----
 
 
+
+
+== Standalone Mode
+
+[source,bash]
+.Start SpringBoot application with default profile
+----
+SPRING_PROFILES_ACTIVE=default mvn clean spring-boot:run
+----
