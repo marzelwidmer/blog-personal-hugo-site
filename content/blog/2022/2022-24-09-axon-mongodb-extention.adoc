@@ -43,7 +43,7 @@ export KBOOT_JAVA_VERS=17
 export KBOOT_PACKAGE_NAME="ch.keepcalm.demo"
 
 http https://start.spring.io/starter.tgz \
-    dependencies==actuator,webflux,data-mongodb-reactive,hateoas \
+    dependencies==actuator,webflux,data-mongodb-reactive,hateoas,flapdoodle-mongo \
     description==$KBOOT_APPL_DESC \
     applicationName==$KBOOT_APPL_NAME \
     name==$KBOOT_NAME \
@@ -161,10 +161,49 @@ Search the `spring-boot-starter-hateoas` dependency and exclude the `spring-boot
 
 
 
+
 == Standalone Mode
 
 [source,bash]
-.Start SpringBoot application with default profile
+.create standalone Spring profile
 ----
-SPRING_PROFILES_ACTIVE=default mvn clean spring-boot:run
+echo "spring:
+  config:
+    activate:
+      on-profile: standalone
+  mongodb:
+    embedded:
+      version: 5.0.6
+  data:
+    mongodb:
+      port: 27017
+"| > src/main/resources/application-standalone.yaml
+----
+
+Add _de.flapdoodle.embed.mongo_ Maven dependency as _standalone_ profile in the _pom.xml_ to start eembedded MongoDB
+
+[source,xml]
+.create maven profile standalone
+----
+<!-- =================  Profiles ================= -->
+<profiles>
+    <profile>
+        <id>standalone</id>
+        <dependencies>
+            <dependency>
+                <groupId>de.flapdoodle.embed</groupId>
+                <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            </dependency>
+        </dependencies>
+    </profile>
+</profiles>
+----
+
+
+Start the application in _standalone_ Spring and Maven profile should start the Spring Boot application with _Netty_ and embedded MongoDB with the following command:
+
+[source,bash]
+.Start SpringBoot application with standalone profile
+----
+SPRING_PROFILES_ACTIVE=standalone mvn clean spring-boot:run -Pstandalone
 ----
