@@ -9,7 +9,23 @@ ShowToc: true
 TocOpen: true
 ---
 
-![axon-cqrs](/static/axon/axon-cqrs.jpg)
+:toc: left
+:doctype: book
+:sectanchors:
+:copyright: ©
+:dot: .
+:ellipsis: …
+:hatch: #
+:pilcrow: ¶
+:star: *
+:tilde: ~
+:ul: _
+:revnumber: {project-version}
+ifndef::image[:image: /static/axon/]
+
+
+image::../static/axon/axon-cqrs.jpg[axon-cqrs]
+
 
 In this blog post we look into [Axon Framework](https://www.axoniq.io) is a framework for building evolutionary, event-driven microservice systems, based on the principles of Domain Driven Design, Command-Query Responsibility Segregation (CQRS) and Event Sourcing.
 
@@ -73,9 +89,10 @@ echo "spring:
     name: $KBOOT_NAME" | > src/main/resources/application.yaml
 ----
 
-## Onion Architecture
+== Onion Architecture
 
-![ports-and-adapters](/static/axon/ports-and-adapter.png)
+
+image::../static/axon/ports-and-adapter.png[ports-and-adapters]
 
 
 folder structure
