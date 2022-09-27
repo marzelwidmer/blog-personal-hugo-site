@@ -180,7 +180,7 @@ echo "spring:
 "| > src/main/resources/application-standalone.yaml
 ----
 
-Add _de.flapdoodle.embed.mongo_ Maven dependency as _standalone_ profile in the _pom.xml_ to start eembedded MongoDB
+Add _de.flapdoodle.embed.mongo_ Maven dependency as _standalone_ profile in the _pom.xml_ to start an embedded MongoDB
 
 [source,xml]
 .create maven profile standalone
