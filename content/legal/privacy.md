@@ -6,7 +6,7 @@ searchHidden: true
 url: /legal/privacy
 description: This is the privacy policy page for blog.marcelwidmer.org (Website.com)
 ---
-## Privacy Policy for Company Name
+## Privacy Policy for marcelwidmer.org
 At blog.marcelwidmer.org, accessible at Website.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by blog.marcelwidmer.org and how we use it.
 
 If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at [email protected]
