@@ -9,41 +9,102 @@ ShowToc: true
 TocOpen: true
 ---
 
-Let's update the _pom.xml_ with the _Axon_ dependencies and all needed extensions for the _MongoDB_ setup.
+Let's get our hand dirty now with the _Axon_ stuff, and Kotlin Spring Boot.
+First we will add the _Axon_ dependencies and a addition https://kotlinlang.org/docs/no-arg-plugin.html[no-args compiler plugin].
 
+Update the following stuff in the _pom.xml_
 
 [source,xml]
 .pom.xml
 ----
-<!-- =================  Axon ================= -->
-<dependency>
-    <groupId>org.axonframework</groupId>
-    <artifactId>axon-spring-boot-starter</artifactId>
-    <exclusions>
-        <exclusion>
+<properties>
+    <axon.version>4.5.12</axon.version>
+...
+...
+
+<!-- =================  Dependency Management ================= -->
+<dependencyManagement>
+    <dependencies>
+        <!-- AXON -->
+        <dependency>
             <groupId>org.axonframework</groupId>
-            <artifactId>axon-server-connector</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-<dependency>
-    <groupId>org.axonframework.extensions.reactor</groupId>
-    <artifactId>axon-reactor-spring-boot-starter</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.axonframework.extensions.mongo</groupId>
-    <artifactId>axon-mongo</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.axonframework</groupId>
-    <artifactId>axon-micrometer</artifactId>
-</dependency>
-<!--	AXON TEST	-->
-<dependency>
-    <groupId>org.axonframework</groupId>
-    <artifactId>axon-test</artifactId>
-    <scope>test</scope>
-</dependency>
-<!-- =================  Axon ================= -->
+            <artifactId>axon-bom</artifactId>
+            <version>${axon.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <!-- =================  Axon ================= -->
+    <dependency>
+        <groupId>org.axonframework</groupId>
+        <artifactId>axon-spring-boot-starter</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-server-connector</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.axonframework.extensions.reactor</groupId>
+        <artifactId>axon-reactor-spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.axonframework.extensions.mongo</groupId>
+        <artifactId>axon-mongo</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.axonframework</groupId>
+        <artifactId>axon-micrometer</artifactId>
+    </dependency>
+    <!--	AXON TEST	-->
+    <dependency>
+        <groupId>org.axonframework</groupId>
+        <artifactId>axon-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <!-- =================  Axon ================= -->
+...
+...
+<build>
+    <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <pluginOptions>
+                    <option>no-arg:annotation=org.axonframework.spring.stereotype.Aggregate</option>
+                </pluginOptions>
+                <args>
+                    <arg>-Xjsr305=strict</arg>
+                </args>
+                <compilerPlugins>
+                    <plugin>no-arg</plugin>
+                    <plugin>spring</plugin>
+                </compilerPlugins>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-maven-allopen</artifactId>
+                    <version>${kotlin.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-maven-noarg</artifactId>
+                    <version>${kotlin.version}</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
 ----
 
