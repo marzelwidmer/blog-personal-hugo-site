@@ -1,86 +1,21 @@
 ---
 author: "Marcel Widmer"
 date : "2022-09-24"
-title: Axon Framework with MongoDB extension and Onion Architecture - Part 1
-description: "AxonIQ - Spring Boot - MongoDB extension - CQRS"
-tags: [Spring Boot, Axon, CQRS]
+title: Kboot Onion Architecture
+description: "Kotlin Spring Boot - project setup"
+tags: [Spring Boot, onion]
 categories: [Development]
 ShowToc: true
 TocOpen: true
 ---
 
-image::/static/axon/axon-cqrs.jpg[]
+= Onion Architecture
 
-In this blog post we look into [Axon Framework](https://www.axoniq.io) is a framework for building evolutionary, event-driven microservice systems, based on the principles of Domain Driven Design, Command-Query Responsibility Segregation (CQRS) and Event Sourcing.
-
-We will disable the Axon Server and replaced it with the [MongoDB extension](https://github.com/AxonFramework/extension-mongo) this extension provides functionality to leverage Mongo as an EventStorageEngine (to be used by an EventStore) and TokenStore.
-
-For more information on anything Axon, please visit our website, [Axon Framework](https://www.axoniq.io).
-
-= Commands / Events and Query
-
-    - A command tells our application to do something
-    - An event is a notification of something that _has_ happened.
-    - Queries could be _simplified_ by storing a copy of the data in a form easily In many cases, updating the query models can happen asynchronously from processing the transaction: _eventual consistency_
-
-
-= Project Setup
-
-Let's create a Maven Spring Boot project with the following dependencies from [start.spring.io](https://start.spring.io)
-- actuator
-- webflux
-- hateoas
-- reactive mongodb
-
-Run the following commands :
-[source,bash]
-.Create Spring Boot project
-----
-export KBOOT_NAME=kboot-axon
-export KBOOT_APPL_NAME=KbootAxonDemoApplication
-export KBOOT_APPL_DESC="Axon Demo Project"
-export KBOOT_JAVA_VERS=17
-export KBOOT_PACKAGE_NAME="ch.keepcalm.demo"
-
-http https://start.spring.io/starter.tgz \
-    dependencies==actuator,webflux,data-mongodb-reactive,hateoas,flapdoodle-mongo \
-    description==$KBOOT_APPL_DESC \
-    applicationName==$KBOOT_APPL_NAME \
-    name==$KBOOT_NAME \
-    groupId==ch.keepcalm \
-    artifactId==$KBOOT_NAME \
-    packageName==$KBOOT_PACKAGE_NAME \
-    javaVersion==$KBOOT_JAVA_VERS \
-    language==kotlin \
-    baseDir==$KBOOT_NAME| tar -xzvf -
-----
-
-Change in de folder :
-- add `banner.txt`
-- replace `application.properties` with `application.yaml` configuration file.
-
-
-[source,bash]
-.Replace application.properties with application.yaml
-----
-cd $KBOOT_NAME
-
-http https://raw.githubusercontent.com/marzelwidmer/marzelwidmer.github.io/master/img/banner.txt \
-    > src/main/resources/banner.txt
-
-rm src/main/resources/application.properties
-
-echo "spring:
-  application:
-    name: $KBOOT_NAME" | > src/main/resources/application.yaml
-----
-
-== Onion Architecture
-
+My understanding of the onion architecture.
 
 image::/static/axon/ports-and-adapter.png[]
 
-folder structure
+What we will build is a Spring Boot application with a HATEOAS API and the folder structure of a onion architecure.
 
 [source,bash]
 .Application Level Source Folder Structure
@@ -102,14 +37,85 @@ folder structure
 <3> Infrastructure services. An infrastructure service provides functionality to the domain that requires additional infrastructure only available outside of the domain. The infrastructure service interface forms part of the domain, the implementation is part of the infrastructure.
 
 
+
+
+== Spring Boot Application
+
+Let's create a Maven Spring Boot project with the following dependencies from [start.spring.io](https://start.spring.io)
+
+- actuator
+- webflux
+- data-mongodb-reactive
+- hateoas
+- flapdoodle-mongo
+
+run the following commands to create the project :
+
 [source,bash]
-.Create Onion (Hexagonal) folder structure
+.create Spring Boot project
+----
+export KBOOT_NAME=kboot-application
+export KBOOT_APPL_NAME=KbootDemoApplication
+export KBOOT_APPL_DESC="Kboot Demo Project"
+export KBOOT_JAVA_VERS=17
+export KBOOT_PACKAGE_NAME="ch.keepcalm.demo"
+
+http https://start.spring.io/starter.tgz \
+    dependencies==actuator,webflux,data-mongodb-reactive,hateoas,flapdoodle-mongo \
+    description==$KBOOT_APPL_DESC \
+    applicationName==$KBOOT_APPL_NAME \
+    name==$KBOOT_NAME \
+    groupId==ch.keepcalm \
+    artifactId==$KBOOT_NAME \
+    packageName==$KBOOT_PACKAGE_NAME \
+    javaVersion==$KBOOT_JAVA_VERS \
+    language==kotlin \
+    baseDir==$KBOOT_NAME| tar -xzvf -
+----
+
+=== Replace application.properties with application.yaml
+
+Change in the `kboot-application` folder
+
+[source,bash]
+.change in project folder
+----
+cd $KBOOT_NAME
+----
+
+replace spring configuration file `application.properties` with application.yaml`
+
+[source,bash]
+.replace configuration
+----
+rm src/main/resources/application.properties
+
+echo "spring:
+  application:
+    name: $KBOOT_NAME" | > src/main/resources/application.yaml
+----
+
+Add _custom banner_
+
+[source,bash]
+.banner.txt
+----
+
+http https://raw.githubusercontent.com/marzelwidmer/marzelwidmer.github.io/master/img/banner.txt \
+    > src/main/resources/banner.txt
+----
+
+
+Now it's time to create the folder structure for the _onion architecture_
+
+[source,bash]
+.onion folder structure
 ----
 mkdir -p src/main/kotlin/${KBOOT_PACKAGE_NAME//.///}/{infrastructure/{persistence/mongo,logging,exception,configuration,client,api},application,domain}
 ----
 
 [source,bash]
-.Top Level Source Folder Structure
+.top Level Source Folder Structure
 ----
 .
 └── src
@@ -155,9 +161,6 @@ Search the `spring-boot-starter-hateoas` dependency and exclude the `spring-boot
 ----
 
 
-
-
-
 == Standalone Mode
 
 [source,bash]
@@ -194,9 +197,6 @@ Add _de.flapdoodle.embed.mongo_ Maven dependency as _standalone_ profile in the 
     </profile>
 </profiles>
 ----
-
-
-
 
 
 == HATEOAS

@@ -1,0 +1,26 @@
+---
+author: "Marcel Widmer"
+date : "2022-09-24"
+title: Axon Framework with MongoDB extension and Onion Architecture - Part 1
+description: "AxonIQ - Spring Boot - MongoDB extension - CQRS"
+tags: [Spring Boot, Axon, CQRS]
+categories: [Development]
+ShowToc: true
+TocOpen: true
+draft: true
+---
+
+image::/static/axon/axon-cqrs.jpg[]
+
+In this blog post we look into [Axon Framework](https://www.axoniq.io) is a framework for building evolutionary, event-driven microservice systems, based on the principles of Domain Driven Design, Command-Query Responsibility Segregation (CQRS) and Event Sourcing.
+
+We will disable the Axon Server and replaced it with the [MongoDB extension](https://github.com/AxonFramework/extension-mongo) this extension provides functionality to leverage Mongo as an EventStorageEngine (to be used by an EventStore) and TokenStore.
+
+For more information on anything Axon, please visit our website, [Axon Framework](https://www.axoniq.io).
+
+= Commands / Events and Query
+
+    - A command tells our application to do something
+    - An event is a notification of something that _has_ happened.
+    - Queries could be _simplified_ by storing a copy of the data in a form easily In many cases, updating the query models can happen asynchronously from processing the transaction: _eventual consistency_
+

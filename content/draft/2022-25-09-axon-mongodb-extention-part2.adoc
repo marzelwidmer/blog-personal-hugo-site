@@ -7,13 +7,17 @@ tags: [Spring Boot, Axon, CQRS]
 categories: [Development]
 ShowToc: true
 TocOpen: true
+draft: true
 ---
+
+= Configuration
 
 Let's get our hand dirty now with the _Axon_ stuff, and Kotlin Spring Boot.
 First we will add the _Axon_ dependencies and a addition https://kotlinlang.org/docs/no-arg-plugin.html[no-args compiler plugin].
 
 Update the following stuff in the _pom.xml_
 
+== Maven
 [source,xml]
 .pom.xml
 ----
@@ -107,4 +111,6 @@ Update the following stuff in the _pom.xml_
         </plugin>
     </plugins>
 ----
+
+== Axon
 
