@@ -13,7 +13,7 @@ TocOpen: true
 
 My understanding of the onion architecture.
 
-image::/static/axon/ports-and-adapter.png[]
+image::/static/onion/onion.jpg[]
 
 What we will build is a Spring Boot application with a HATEOAS API and the folder structure of a onion architecure.
 
